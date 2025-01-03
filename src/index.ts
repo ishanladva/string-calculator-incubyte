@@ -1,3 +1,4 @@
-export function calculator(str: string): number {
-  return str.length;
+export function calculator(input: string): number {
+  if (!input) return 0;
+  return input.length;
 }

@@ -1,5 +1,13 @@
 import { calculator } from "../src/index";
 
-it("Basic Test Case", () => {
+it("should return 0 for an empty string", () => {
   expect(calculator("")).toBe(0);
+});
+
+it("should return the number for a single number input", () => {
+  expect(calculator("1")).toBe(1);
+});
+
+it("should return the sum of two numbers", () => {
+  expect(calculator("1,2,3")).toBe(6);
 });
