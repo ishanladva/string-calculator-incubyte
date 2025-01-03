@@ -15,3 +15,7 @@ it("should return the sum of two numbers", () => {
 it("should handle new lines as delimiters", () => {
   expect(calculator("1\n2,3")).toBe(6);
 });
+
+it("should support custom delimiters", () => {
+  expect(calculator("//;\n1;2;3")).toBe(6);
+});
