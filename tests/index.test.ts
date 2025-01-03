@@ -25,3 +25,7 @@ it("should throw an error when a negative number is provided", () => {
     "Negative numbers are not allowed: -2"
   );
 });
+
+it("should handle multiple complex custom delimiters", () => {
+  expect(calculator("//[***][%%%]\n1***2%%%3")).toBe(6);
+});
