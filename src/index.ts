@@ -3,6 +3,28 @@ export function calculator(input: string): number {
 
   let delimiters = /,|\n/;
 
+  if (input.startsWith("//")) {
+    const delimiterPartEnd = input.indexOf("\n");
+    const delimiterPart = input.slice(2, delimiterPartEnd);
+    input = input.slice(delimiterPartEnd + 1);
+
+    const customDelimiters = delimiterPart.match(/\[(.*?)\]/g);
+
+    if (customDelimiters) {
+      delimiters = new RegExp(
+        customDelimiters
+          .map((d) =>
+            d.slice(1, -1).replace(/[-[\]{}()*+?.,\\^$|#\s]/g, "\\$&")
+          )
+          .join("|")
+      );
+    } else {
+      delimiters = new RegExp(
+        delimiterPart.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, "\\$&")
+      );
+    }
+  }
+
   const numbers = input.split(delimiters).map((num) => parseInt(num));
   return numbers
     .filter((num) => num <= 1000)
