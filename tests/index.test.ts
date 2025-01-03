@@ -29,3 +29,7 @@ it("should throw an error when a negative number is provided", () => {
 it("should handle multiple complex custom delimiters", () => {
   expect(calculator("//[***][%%%]\n1***2%%%3")).toBe(6);
 });
+
+it("Numbers bigger than 1000 should be ignored", () => {
+  expect(calculator("//;\n1;1001;3")).toBe(4);
+});
