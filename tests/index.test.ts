@@ -11,3 +11,7 @@ it("should return the number for a single number input", () => {
 it("should return the sum of two numbers", () => {
   expect(calculator("1,2,3")).toBe(6);
 });
+
+it("should handle new lines as delimiters", () => {
+  expect(calculator("1\n2,3")).toBe(6);
+});
