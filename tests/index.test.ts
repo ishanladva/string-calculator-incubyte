@@ -21,7 +21,7 @@ it("should support custom delimiters", () => {
 });
 
 it("should throw an error when a negative number is provided", () => {
-  expect(() => calculator("1,-2,3")).toBe(
+  expect(() => calculator("1,-2,3")).toThrow(
     "Negative numbers are not allowed: -2"
   );
 });

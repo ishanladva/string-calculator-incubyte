@@ -26,6 +26,13 @@ export function calculator(input: string): number {
   }
 
   const numbers = input.split(delimiters).map((num) => parseInt(num));
+  const negatives = numbers.filter((num) => num < 0);
+  if (negatives.length) {
+    throw new Error(
+      `Negative numbers are not allowed: ${negatives.join(", ")}`
+    );
+  }
+
   return numbers
     .filter((num) => num <= 1000)
     .reduce((sum, acc) => sum + acc, 0);
