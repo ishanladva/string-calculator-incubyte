@@ -19,3 +19,9 @@ it("should handle new lines as delimiters", () => {
 it("should support custom delimiters", () => {
   expect(calculator("//;\n1;2;3")).toBe(6);
 });
+
+it("should throw an error when a negative number is provided", () => {
+  expect(() => calculator("1,-2,3")).toBe(
+    "Negative numbers are not allowed: -2"
+  );
+});
